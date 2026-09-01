@@ -16,29 +16,29 @@ export const ProjectsSection: React.FC = () => {
 
   const getCategoryIcon = (cat: string) => {
     switch (cat) {
-      case 'Healthcare': return <HeartPulse className="w-4 h-4 text-rose-400" />;
-      case 'POS': return <Utensils className="w-4 h-4 text-amber-400" />;
-      case 'Marine': return <Anchor className="w-4 h-4 text-blue-400" />;
-      case 'Transportation': return <Train className="w-4 h-4 text-cyan-400" />;
-      case 'Government': return <ShieldAlert className="w-4 h-4 text-emerald-400" />;
-      case 'Workforce': return <MapPin className="w-4 h-4 text-purple-400" />;
-      default: return <Compass className="w-4 h-4 text-indigo-400" />;
+      case 'Healthcare': return <HeartPulse className="w-4 h-4 text-rose-500" />;
+      case 'POS': return <Utensils className="w-4 h-4 text-amber-500" />;
+      case 'Marine': return <Anchor className="w-4 h-4 text-blue-600" />;
+      case 'Transportation': return <Train className="w-4 h-4 text-[#0071E3]" />;
+      case 'Government': return <ShieldAlert className="w-4 h-4 text-emerald-600" />;
+      case 'Workforce': return <MapPin className="w-4 h-4 text-purple-600" />;
+      default: return <Compass className="w-4 h-4 text-indigo-600" />;
     }
   };
 
   return (
-    <section id="projects" className="py-24 relative bg-radial-gradient">
+    <section id="projects" className="py-24 relative bg-[#F5F5F7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-semibold">
             <FolderGit2 className="w-3.5 h-3.5" /> Production Portfolio
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">
             Featured Project Case Studies
           </h2>
-          <p className="text-slate-400 text-base">
+          <p className="text-[#515154] text-base">
             Detailed breakdown of real-world Flutter mobile applications engineered across healthcare, POS, marine logistics, transit, and public safety.
           </p>
         </div>
@@ -49,15 +49,15 @@ export const ProjectsSection: React.FC = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all duration-200 flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
                 selectedCategory === cat
-                  ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700'
+                  ? 'bg-[#0071E3] text-white shadow-md scale-105'
+                  : 'bg-white text-[#515154] hover:text-[#1D1D1F] border border-black/5 hover:border-black/10 shadow-2xs'
               }`}
             >
               {cat !== 'All' && getCategoryIcon(cat)}
               <span>{cat}</span>
-              {cat === 'All' && <span className="opacity-60 font-mono">({RESUME_DATA.projects.length})</span>}
+              {cat === 'All' && <span className="opacity-70 font-mono">({RESUME_DATA.projects.length})</span>}
             </button>
           ))}
         </div>
@@ -68,43 +68,40 @@ export const ProjectsSection: React.FC = () => {
             <div
               key={project.id}
               onClick={() => setActiveProject(project)}
-              className="glass-card glass-card-hover rounded-2xl border border-slate-800/80 p-6 flex flex-col justify-between cursor-pointer group relative overflow-hidden"
+              className="apple-glass-card rounded-3xl p-7 flex flex-col justify-between cursor-pointer group relative overflow-hidden"
             >
               
-              {/* Subtle top glow line */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
               <div>
                 {/* Header badges */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-cyan-400">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F5F7] border border-black/5 text-xs font-semibold text-[#0071E3]">
                     {getCategoryIcon(project.category)}
                     <span>{project.category}</span>
                   </span>
-                  <span className="text-xs font-mono text-slate-500">
+                  <span className="text-xs font-mono text-[#86868B] font-semibold">
                     {project.year}
                   </span>
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2 line-clamp-1">
+                <h3 className="text-xl font-bold text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors mb-1.5 line-clamp-1">
                   {project.title}
                 </h3>
-                <p className="text-xs font-medium text-slate-400 mb-3">
+                <p className="text-xs font-medium text-[#86868B] mb-3">
                   {project.subtitle}
                 </p>
 
                 {/* Summary */}
-                <p className="text-sm text-slate-300 leading-relaxed mb-6 line-clamp-3">
+                <p className="text-sm text-[#515154] leading-relaxed mb-6 line-clamp-3 font-normal">
                   {project.summary}
                 </p>
               </div>
 
               <div>
                 {/* Client / Role line */}
-                <div className="text-xs font-mono text-slate-400 mb-4 pb-3 border-b border-slate-800/80 flex items-center justify-between">
+                <div className="text-xs font-mono text-[#86868B] mb-4 pb-3 border-b border-black/5 flex items-center justify-between font-semibold">
                   <span className="truncate max-w-[180px]">{project.clientOrLocation}</span>
-                  <span className="text-cyan-400 font-semibold">{project.role}</span>
+                  <span className="text-[#0071E3]">{project.role}</span>
                 </div>
 
                 {/* Tech Chips */}
@@ -112,21 +109,21 @@ export const ProjectsSection: React.FC = () => {
                   {project.techStack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300"
+                      className="px-2.5 py-0.5 rounded-full bg-[#F5F5F7] border border-black/5 text-[11px] font-mono text-[#1D1D1F] font-semibold"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.techStack.length > 4 && (
-                    <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#F5F5F7] border border-black/5 text-[11px] font-mono text-[#86868B]">
                       +{project.techStack.length - 4} more
                     </span>
                   )}
                 </div>
 
                 {/* CTA Link */}
-                <div className="flex items-center justify-between text-xs font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors pt-1">
-                  <span className="flex items-center gap-1">
+                <div className="flex items-center justify-between text-xs font-bold text-[#0071E3] group-hover:text-[#0056B3] transition-colors pt-1">
+                  <span className="flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" /> Read Full Case Study
                   </span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

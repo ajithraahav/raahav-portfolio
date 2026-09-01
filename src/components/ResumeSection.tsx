@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileText, Download, Eye, CheckCircle2 } from 'lucide-react';
+import { RESUME_DATA } from '../data/resumeData';
 
 interface ResumeSectionProps {
   onOpenModal: () => void;
@@ -8,46 +9,43 @@ interface ResumeSectionProps {
 
 export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenModal, onDownload }) => {
   return (
-    <section className="py-20 relative bg-radial-gradient">
+    <section className="py-20 relative bg-[#F5F5F7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="glass-card rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl relative overflow-hidden max-w-5xl mx-auto">
+        <div className="apple-glass-card rounded-3xl p-8 sm:p-12 border border-black/5 shadow-md relative overflow-hidden max-w-5xl mx-auto">
           
-          {/* Subtle background glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-cyan-300 text-xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-semibold">
                 <FileText className="w-3.5 h-3.5" /> Official Curriculum Vitae
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">
                 Download Official Resume
               </h2>
 
-              <p className="text-slate-300 text-base leading-relaxed">
-                Access my verified 2-page detailed technical resume covering my 5+ years of Flutter engineering, Clean Architecture implementations, HIPAA healthcare compliance work, and offline-first mobile projects.
+              <p className="text-[#515154] text-base leading-relaxed font-normal">
+                Access my verified 2-page detailed technical resume covering 5+ years of Flutter engineering, Clean Architecture implementations, HIPAA healthcare compliance work, and offline-first mobile projects.
               </p>
 
               {/* Verified Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#1D1D1F] font-mono font-semibold">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                   <span>5+ Years Verified Experience</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                   <span>BLoC & Clean Architecture</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                   <span>HIPAA US Healthcare Project</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                   <span>Offline-First (SQLite / Hive)</span>
                 </div>
               </div>
@@ -56,7 +54,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenModal, onDow
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={onDownload}
-                  className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-lg shadow-cyan-500/25 transition-all duration-200"
+                  className="flex items-center gap-2.5 px-6 py-3.5 rounded-full font-bold text-white bg-[#0071E3] hover:bg-[#0056B3] shadow-md hover:shadow-lg transition-all duration-200"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Resume PDF</span>
@@ -64,9 +62,9 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenModal, onDow
 
                 <button
                   onClick={onOpenModal}
-                  className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 transition-all duration-200"
+                  className="flex items-center gap-2.5 px-6 py-3.5 rounded-full font-semibold text-[#1D1D1F] bg-white hover:bg-slate-50 border border-black/10 shadow-2xs hover:border-[#0071E3]/40 transition-all duration-200"
                 >
-                  <Eye className="w-4 h-4 text-cyan-400" />
+                  <Eye className="w-4 h-4 text-[#0071E3]" />
                   <span>Full Screen Preview</span>
                 </button>
               </div>
@@ -76,29 +74,29 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenModal, onDow
             <div className="lg:col-span-5">
               <div
                 onClick={onOpenModal}
-                className="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 shadow-xl cursor-pointer group transition-all"
+                className="bg-white p-7 rounded-3xl border border-black/5 hover:border-[#0071E3]/40 shadow-sm hover:shadow-md cursor-pointer group transition-all"
               >
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-                  <span className="font-mono text-xs text-slate-400 flex items-center gap-1.5">
-                    <FileText className="w-4 h-4 text-cyan-400" /> Raahav_Ajith_Resume.pdf
+                <div className="flex items-center justify-between border-b border-black/5 pb-3 mb-4">
+                  <span className="font-mono text-xs text-[#1D1D1F] font-bold flex items-center gap-1.5">
+                    <FileText className="w-4 h-4 text-[#0071E3]" /> Raahav_Ajith_Flutter_Developer.pdf
                   </span>
-                  <span className="text-[10px] font-mono bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-800">
+                  <span className="text-[10px] font-mono bg-[#0071E3]/10 text-[#0071E3] px-2.5 py-0.5 rounded-full font-bold">
                     PDF Document
                   </span>
                 </div>
 
-                <div className="space-y-3 font-mono text-[11px] text-slate-400 leading-relaxed opacity-75 group-hover:opacity-100 transition-opacity">
-                  <div className="text-white font-bold">Raahav Ajith K S — Flutter Developer</div>
+                <div className="space-y-3 font-mono text-[11px] text-[#515154] leading-relaxed">
+                  <div className="text-[#1D1D1F] font-bold text-xs">{RESUME_DATA.personal.name}</div>
                   <div>+91 6382799376 • ajithraahav@gmail.com</div>
-                  <div className="text-cyan-300">5+ Years • BLoC • Clean Architecture • Scalable Mobile Apps</div>
-                  <div className="h-0.5 bg-slate-800 my-2" />
+                  <div className="text-[#0071E3] font-semibold">5+ Years Exp • BLoC • Clean Architecture • Scalable Mobile Apps</div>
+                  <div className="h-0.5 bg-black/5 my-2" />
                   <div>MOURI Tech Limited — Consultant – Flutter Developer</div>
                   <div>Galentic Technology — Flutter Developer</div>
                   <div>Techzarinfo Software Solutions — Flutter Developer</div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-center gap-2 text-xs font-semibold text-cyan-400 group-hover:text-cyan-300">
-                  <Eye className="w-4 h-4" /> Click to Read Document
+                <div className="mt-4 pt-3 border-t border-black/5 flex items-center justify-center gap-2 text-xs font-bold text-[#0071E3] group-hover:text-[#0056B3]">
+                  <Eye className="w-4 h-4" /> Click to View Official PDF Document
                 </div>
               </div>
             </div>

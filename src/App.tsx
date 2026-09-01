@@ -17,89 +17,41 @@ export function App() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   const handleDownloadResume = () => {
-    const textContent = `
-================================================================================
-                           ${RESUME_DATA.personal.name}
-${RESUME_DATA.personal.title} — 5+ Years Experience — BLoC — Clean Architecture
-Phone: ${RESUME_DATA.personal.phone} | Email: ${RESUME_DATA.personal.email} | Location: ${RESUME_DATA.personal.location}
-GitHub: ${RESUME_DATA.personal.github} | LinkedIn: ${RESUME_DATA.personal.linkedin}
-================================================================================
-
-PROFESSIONAL SUMMARY:
-${RESUME_DATA.personal.summary}
-
-TECHNICAL SKILLS:
-- Programming: Dart, JavaScript, Kotlin, HTML, CSS
-- Frameworks: Flutter, Flutter Web (latest stable versions)
-- State Management: BLoC, Cubit, Provider
-- Architecture: Clean Architecture, MVVM, Repository Pattern
-- Navigation: Navigator 2.0 (Basic), go_router, Deep Linking
-- API Integration: REST APIs, GraphQL (Basic), Caching, Error Handling, Retry Mechanisms (Exponential Backoff)
-- Mobile Integrations: Firebase (Auth, FCM, Crashlytics), Google Maps API, Location Services, Razorpay
-- Databases: Hive, SQLite, MySQL
-- DevOps & Tools: Git, GitHub, Azure DevOps (CI/CD), Fastlane (Basic), GitHub Actions (Basic)
-- AI / ML Integration: MediaPipe, TensorFlow Lite (TFLite), On-device ML Model Integration
-
-PROFESSIONAL EXPERIENCE:
-${RESUME_DATA.experiences.map(e => `
-* ${e.company} — ${e.role} (${e.period})
-  Location: ${e.location} ${e.context ? `| Context: ${e.context}` : ''}
-  Highlights:
-  ${e.highlights.map(h => `  - ${h}`).join('\n')}
-  Technologies: ${e.technologies.join(', ')}
-`).join('\n')}
-
-SELECTED PROJECTS:
-${RESUME_DATA.projects.map(p => `
-* ${p.title} (${p.year})
-  Category: ${p.category} | Client/Location: ${p.clientOrLocation} | Role: ${p.role}
-  Summary: ${p.summary}
-  Contributions:
-  ${p.contribution.map(c => `  - ${c}`).join('\n')}
-  Tech Stack: ${p.techStack.join(', ')}
-`).join('\n')}
-
-EDUCATION:
-${RESUME_DATA.education.map(edu => `
-* ${edu.institution} — ${edu.degree} (${edu.period})
-  Location: ${edu.location} | Status: ${edu.status}
-  Details: ${edu.details}
-`).join('\n')}
-`;
-
-    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
+    // Triggers direct download of actual PDF asset Raahav_Ajith_Flutter_Developer.pdf
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Raahav_Ajith_KS_Resume.txt';
+    link.href = RESUME_DATA.personal.resumePdfPath;
+    link.download = 'Raahav_Ajith_Flutter_Developer.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
-    <div className="min-h-screen bg-[#090C15] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] selection:bg-[#0071E3]/20 selection:text-[#0071E3]">
       
       {/* Sticky Header */}
-      <Navbar onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+      <Navbar
+        onDownloadResume={handleDownloadResume}
+      />
 
       {/* Main Sections */}
       <main>
-        <Hero onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+        <Hero
+          onDownloadResume={handleDownloadResume}
+        />
         <MetricsBar />
         
         {/* About / Summary Section */}
-        <section id="about" className="py-20 relative bg-[#090C15]">
+        <section id="about" className="py-20 relative bg-[#F5F5F7]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-semibold">
               <span>About Me</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Engineering Scalable Cross-Platform Applications
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">
+              Engineering Scalable Cross-Platform Mobile Applications
             </h2>
-            <p className="text-lg text-slate-300 leading-relaxed max-w-4xl mx-auto font-normal">
-              I am a Flutter Developer with <span className="text-cyan-300 font-semibold">4.5+ years of production experience</span> crafting resilient mobile and web applications. My core expertise centers on <span className="text-white font-semibold">BLoC state management</span>, <span className="text-white font-semibold">Clean Architecture</span>, robust REST API integrations, and offline-first database design (relational SQLite and Hive). Having delivered solutions across Healthcare (HIPAA-focused), Marine Fleet Management, Restaurant POS, Transit MVP, and Government citizen reporting, I focus on building software systems that perform under challenging real-world network conditions.
+            <p className="text-lg text-[#515154] leading-relaxed max-w-4xl mx-auto font-normal">
+              I am a Senior Flutter Developer with <span className="text-[#0071E3] font-bold">5+ Years of Experience</span> crafting resilient mobile and web applications. My core expertise centers on <span className="text-[#1D1D1F] font-semibold">BLoC state management</span>, <span className="text-[#1D1D1F] font-semibold">Clean Architecture</span>, robust REST API integrations, and offline-first database design (relational SQLite and Hive). Having delivered solutions across Healthcare (HIPAA-focused), Marine Fleet Management, Restaurant POS, Transit MVP, and Government citizen reporting, I focus on building software systems that perform under challenging real-world network conditions.
             </p>
           </div>
         </section>
@@ -117,9 +69,11 @@ ${RESUME_DATA.education.map(edu => `
       </main>
 
       {/* Footer */}
-      <Footer onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+      <Footer
+        onDownloadResume={handleDownloadResume}
+      />
 
-      {/* Resume Document Modal */}
+      {/* Resume PDF Viewer Modal */}
       <ResumeModal
         isOpen={isResumeModalOpen}
         onClose={() => setIsResumeModalOpen(false)}
