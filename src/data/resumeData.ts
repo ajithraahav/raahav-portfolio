@@ -53,7 +53,7 @@ export const RESUME_DATA = {
     email: "ajithraahav@gmail.com",
     location: "Tamil Nadu, India",
     github: "https://github.com/ajithraahav",
-    linkedin: "https://linkedin.com/in/raahav-ajith-k-s",
+    linkedin: "https://www.linkedin.com/in/raahav-ajith-253b95202/",
     resumePdfPath: "/Raahav_Ajith_Flutter_Developer.pdf",
     summary: "Flutter Developer with 5+ years of experience building scalable mobile and web applications using Flutter and Dart. Delivered production applications across healthcare, government, logistics, hospitality, and transportation domains. Strong expertise in BLoC, Clean Architecture, REST API integration, offline-first systems, and performance optimization.",
     headline: "Building production-grade cross-platform mobile experiences with Flutter, Clean Architecture, and offline-first reliability.",
