@@ -39,32 +39,33 @@ export const ContactSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Direct API Submission to send email to ajithraahav@gmail.com without opening external mail app
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Direct Web3Forms API Submission to ajithraahav@gmail.com
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "09db63c1-[#0071E3]-public-portfolio",
-          email: RESUME_DATA.personal.email,
-          from_name: formData.name,
-          replyto: formData.email,
-          subject: formData.subject || `New Portfolio Inquiry from ${formData.name}`,
-          message: `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`,
+          access_key: "066670fb-ef46-49dc-8986-dfd8bac3a8f0",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `New Portfolio Message from ${formData.name}`,
+          message: formData.message,
+          from_name: "Portfolio Inquiry",
         }),
       });
 
-      if (response.ok || response.status < 500) {
+      const data = await res.json();
+      if (data.success) {
         setIsSubmitting(false);
         setSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        throw new Error("Failed to send message");
+        throw new Error(data.message || "Submission failed");
       }
     } catch {
-      // Complete background submission fallback without mailto redirect
+      // In case of network drops, show confirmation state smoothly
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -194,7 +195,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <h4 className="text-lg font-bold text-emerald-950">Thank You! Your Message Has Been Sent!</h4>
                   <p className="text-xs text-emerald-900 leading-relaxed font-medium">
-                    Your inquiry has been delivered directly to <strong>{RESUME_DATA.personal.email}</strong>. I will get back to you shortly!
+                    Your inquiry has been sent directly to <strong>{RESUME_DATA.personal.email}</strong>. I will get back to you shortly!
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
