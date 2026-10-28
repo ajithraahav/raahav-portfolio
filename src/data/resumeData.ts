@@ -6,6 +6,8 @@ export interface Project {
   category: 'Healthcare' | 'Workforce' | 'POS' | 'Transportation' | 'Government' | 'Marine' | 'Utility';
   clientOrLocation: string;
   role: string;
+  featured?: boolean;
+  highlightBadge?: string;
   summary: string;
   challenge: string;
   contribution: string[];
@@ -54,8 +56,8 @@ export const RESUME_DATA = {
     location: "Tamil Nadu, India",
     github: "https://github.com/ajithraahav",
     linkedin: "https://www.linkedin.com/in/raahav-ajith-253b95202/",
-    resumePdfPath: "/Raahav_Ajith_Flutter_Developer.pdf",
-    summary: "Flutter Developer with 5+ years of experience building scalable mobile and web applications using Flutter and Dart. Delivered production applications across healthcare, government, logistics, hospitality, and transportation domains. Strong expertise in BLoC, Clean Architecture, REST API integration, offline-first systems, and performance optimization.",
+    resumePdfPath: "/Raahav_Ajith_Flutter_Developer.pdf?v=20261028",
+    summary: "Flutter Developer with 5+ years of experience building scalable mobile and web applications using Flutter and Dart. Delivered production applications across healthcare (DIGIT Patient Rehabilitation platform), government, logistics, hospitality, and transportation domains. Strong expertise in BLoC, Clean Architecture, REST API integration, offline-first systems, and performance optimization.",
     headline: "Building production-grade cross-platform mobile experiences with Flutter, Clean Architecture, and offline-first reliability.",
   },
 
@@ -143,13 +145,14 @@ export const RESUME_DATA = {
       period: "May 2026 – Present",
       location: "Chennai, India",
       isContractual: true,
-      context: "US-Based Healthcare Engagement (HIPAA Focused)",
+      context: "US Healthcare (HIPAA Focused) • DIGIT Clinical Platform",
       highlights: [
-        "Engaged on a contractual Flutter project for a major US-based healthcare application adhering strictly to HIPAA-focused data handling practices.",
-        "Developing scalable Flutter features leveraging BLoC, Clean Architecture, and secure API integrations within a HIPAA-sensitive environment.",
-        "Collaborating seamlessly across cross-functional backend, UI/UX design, QA, and client engineering teams throughout agile development sprints."
+        "Architected and engineered the flagship DIGIT Patient Rehabilitation & Clinical Assessment Platform adhering strictly to HIPAA-focused data handling guidelines.",
+        "Created modular clinical digital measurement widgets (recording PIP flexion and contracture progress) and structured data-entry flows powered by BLoC state management.",
+        "Constructed reusable widgets and immutable data models with Freezed, integrating secure backend APIs within a strict HIPAA-focused clinical environment.",
+        "Developing scalable Flutter features leveraging Clean Architecture, domain use-cases, and offline resilience in collaboration with US client teams."
       ],
-      technologies: ["Flutter", "Dart", "BLoC", "Clean Architecture", "REST APIs", "HIPAA Compliance", "Widget Optimization"],
+      technologies: ["Flutter", "Dart", "BLoC", "Freezed", "Clinical Digital Widgets", "Clean Architecture", "REST APIs", "HIPAA Compliance"],
     },
     {
       id: "galentic",
@@ -212,21 +215,25 @@ export const RESUME_DATA = {
       category: "Healthcare",
       clientOrLocation: "US Client — MOURI Tech",
       role: "Flutter Developer (Consultant)",
-      summary: "A specialized healthcare application built for clinical rehabilitation assessment, enabling precise tracking of patient motor progress, including PIP flexion and joint contracture measurements.",
+      featured: true,
+      highlightBadge: "Flagship Showcase • Clinical Digital Widgets",
+      summary: "A specialized healthcare application built for clinical rehabilitation assessment, enabling precise tracking of patient motor progress, including PIP flexion and joint contracture measurements through custom interactive digital widgets.",
       challenge: "Healthcare clinical assessments require rigorous measurement accuracy, real-time structured data entry, and strict compliance with HIPAA data privacy standards without sacrificing mobile app responsiveness.",
       contribution: [
         "Engineered Flutter assessment workflows for recording patient PIP flexion and contracture-related measurements.",
         "Created modular digital input widgets and structured data-entry flows powered by BLoC state management and Clean Architecture.",
+        "Constructed reusable widgets and immutable data models with Freezed, integrating secure backend APIs within a strict HIPAA-focused clinical environment.",
         "Integrated secure backend APIs while maintaining strict HIPAA-focused data handling guidelines in collaboration with US client teams."
       ],
-      architectureDetails: "Clean Architecture split into Core, Feature Presentation (BLoC), Domain UseCases, and Data Repository layers with encrypted REST communications.",
+      architectureDetails: "Clean Architecture split into Core, Feature Presentation (BLoC + Freezed), Domain UseCases, and Data Repository layers with encrypted REST communications.",
       features: [
         "Clinical PIP Flexion & Contracture Measurement Workflows",
         "Structured Assessment Entry & Reusable Digital Widgets",
+        "Freezed Immutable Data Models & BLoC Reactive Streams",
         "HIPAA-Compliant Encrypted API Integrations",
-        "Patient Progress Visual Tracking & Reports"
+        "Patient Progress Visual Tracking & Real-Time Reports"
       ],
-      techStack: ["Flutter", "Dart", "BLoC", "Clean Architecture", "REST APIs", "HIPAA Data Handling", "Widgets Optimization"],
+      techStack: ["Flutter", "Dart", "BLoC", "Freezed", "Reusable Clinical Widgets", "Clean Architecture", "REST APIs", "HIPAA Compliance"],
       iconName: "HeartPulse",
     },
     {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, Mail, Smartphone, Layers, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Download, Mail, Smartphone, Layers, CheckCircle2, Zap, HeartPulse } from 'lucide-react';
 import { RESUME_DATA } from '../data/resumeData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
@@ -40,9 +40,9 @@ export const Hero: React.FC<HeroProps> = ({ onDownloadResume }) => {
               </div>
             </div>
 
-            {/* Resume Summary Statement highlighting 5+ Years Experience */}
+            {/* Resume Summary Statement highlighting 5+ Years Experience & DIGIT */}
             <p className="text-base sm:text-lg text-[#515154] max-w-2xl leading-relaxed font-normal">
-              Over <span className="text-[#1D1D1F] font-bold">5+ Years of Experience</span> building production-grade mobile & web applications with <span className="text-[#1D1D1F] font-semibold">Flutter & Dart</span>. Specialized in <span className="text-[#0071E3] font-semibold">BLoC architecture</span>, <span className="text-[#0071E3] font-semibold">Clean Architecture</span>, offline-first systems (SQLite / Hive), and HIPAA-compliant healthcare applications.
+              Over <span className="text-[#1D1D1F] font-bold">5+ Years of Experience</span> building production-grade mobile & web applications with <span className="text-[#1D1D1F] font-semibold">Flutter & Dart</span>. Specialized in <span className="text-[#0071E3] font-semibold">BLoC architecture</span>, <span className="text-[#0071E3] font-semibold">Clean Architecture</span>, and HIPAA-compliant healthcare systems—most notably the <span className="text-rose-600 font-bold">DIGIT Patient Rehabilitation platform</span> featuring modular clinical digital widgets.
             </p>
 
             {/* Action CTAs */}
@@ -104,7 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ onDownloadResume }) => {
             <div className="relative mx-auto max-w-lg">
               
               {/* Subtle background card glow */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#0071E3]/20 to-indigo-500/20 blur-2xl opacity-60 pointer-events-none" />
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-rose-500/20 via-[#0071E3]/20 to-indigo-500/20 blur-2xl opacity-60 pointer-events-none" />
 
               <div className="relative apple-glass-card rounded-3xl p-6 sm:p-8 space-y-6">
                 
@@ -127,6 +127,19 @@ export const Hero: React.FC<HeroProps> = ({ onDownloadResume }) => {
                 {/* Key Highlights Frosted Cards */}
                 <div className="space-y-3">
                   
+                  {/* Healthcare Highlight: DIGIT Platform & Custom Clinical Widgets */}
+                  <div className="p-4 rounded-2xl bg-white/95 border border-rose-200 shadow-2xs space-y-1 ring-1 ring-rose-500/10">
+                    <div className="flex items-center justify-between text-xs font-semibold text-[#86868B]">
+                      <span className="flex items-center gap-1.5 text-rose-600 font-bold">
+                        <HeartPulse className="w-4 h-4 text-rose-500" /> DIGIT Healthcare Project
+                      </span>
+                      <span className="text-rose-600 font-mono font-bold bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">US Client • HIPAA</span>
+                    </div>
+                    <p className="text-sm font-bold text-[#1D1D1F]">
+                      Clinical Assessment Platform: Modular Digital Widgets for PIP Flexion & Progress Tracking
+                    </p>
+                  </div>
+
                   <div className="p-4 rounded-2xl bg-white/90 border border-black/5 shadow-2xs space-y-1">
                     <div className="flex items-center justify-between text-xs font-semibold text-[#86868B]">
                       <span className="flex items-center gap-1.5 text-[#0071E3]">
@@ -135,19 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ onDownloadResume }) => {
                       <span className="text-emerald-600 font-mono">Clean Arch + BLoC</span>
                     </div>
                     <p className="text-sm font-bold text-[#1D1D1F]">
-                      Unidirectional Reactive State Streams & Domain Separation
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/90 border border-black/5 shadow-2xs space-y-1">
-                    <div className="flex items-center justify-between text-xs font-semibold text-[#86868B]">
-                      <span className="flex items-center gap-1.5 text-amber-600">
-                        <ShieldCheck className="w-4 h-4" /> Healthcare Compliance
-                      </span>
-                      <span className="text-amber-600 font-mono">US Client</span>
-                    </div>
-                    <p className="text-sm font-bold text-[#1D1D1F]">
-                      HIPAA Data Standards & PIP Flexion Assessment Modules
+                      Unidirectional Reactive State Streams, Freezed Models & Domain Separation
                     </p>
                   </div>
 

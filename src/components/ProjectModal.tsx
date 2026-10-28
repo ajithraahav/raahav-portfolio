@@ -141,6 +141,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           </div>
 
+          {/* Clinical Digital Widgets Spotlight for DIGIT */}
+          {project.id === 'digit-healthcare' && (
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-rose-50/90 to-pink-50/50 border border-rose-200/80 space-y-3">
+              <div className="flex items-center gap-2 text-rose-700 font-bold text-sm">
+                <HeartPulse className="w-5 h-5 text-rose-500" />
+                <span>Deep Dive: Clinical Digital Input Widgets Architecture</span>
+              </div>
+              <p className="text-xs text-rose-950 leading-relaxed font-normal">
+                To capture intricate joint flexion and contracture progression accurately, custom Flutter digital measurement widgets were engineered. These widgets replace generic number fields with intuitive, clinical-grade angle sliders and interactive dials. Powered by BLoC and Freezed immutable models, they prevent state corruption and guarantee strict validation prior to encrypted HIPAA API persistence.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                <div className="p-2.5 rounded-xl bg-white/80 border border-rose-200/60 text-[11px] text-[#1D1D1F]">
+                  <span className="font-bold text-rose-700 block">PIP Flexion Controls</span>
+                  Continuous angle tracking with custom paint visual arc feedback.
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/80 border border-rose-200/60 text-[11px] text-[#1D1D1F]">
+                  <span className="font-bold text-rose-700 block">Freezed Immutability</span>
+                  Predictable, unidirectional state streams preventing clinical input anomalies.
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/80 border border-rose-200/60 text-[11px] text-[#1D1D1F]">
+                  <span className="font-bold text-rose-700 block">HIPAA Encryption</span>
+                  End-to-end payload encryption adhering to US healthcare compliance.
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Key Features */}
           <div className="space-y-3">
             <h3 className="text-xs font-mono text-indigo-600 uppercase tracking-wider font-bold">

@@ -7,23 +7,23 @@ export const EngineeringShowcase: React.FC = () => {
   const architectureLayers = [
     {
       name: "1. Presentation Layer",
-      subtitle: "Flutter UI Widgets & Animations",
-      desc: "Responsive UI built with Flutter standard implicit/explicit animations. Widget rebuild optimization eliminating wasteful render passes through const constructors and Keys.",
-      tech: ["Flutter Widgets", "Responsive Layouts", "Custom Paint", "Implicit Animations"],
+      subtitle: "Flutter UI & Modular Clinical Widgets",
+      desc: "Responsive UI and custom clinical digital widgets (engineered for the DIGIT healthcare platform, including PIP flexion sliders and contracture angle dials). Widget rebuild optimization eliminating wasteful render passes through const constructors and Keys.",
+      tech: ["Clinical DIGIT Widgets", "Flutter UI", "Custom Paint", "Rebuild Optimization"],
       color: "border-[#0071E3] text-[#0071E3] bg-[#0071E3]/10"
     },
     {
       name: "2. State Management",
-      subtitle: "BLoC / Cubit / Provider",
-      desc: "Unidirectional data flow isolating UI rendering from logic. Emits immutable state streams (`State.Loading()`, `State.Loaded()`, `State.Error()`) to guarantee predictable UI behavior.",
-      tech: ["flutter_bloc", "Cubit", "Streams / Rx", "Equatable"],
+      subtitle: "BLoC & Freezed Immutable State",
+      desc: "Unidirectional data flow isolating UI rendering from logic. Emits immutable state streams (`State.Loading()`, `State.Loaded()`, `State.Error()`) with Freezed data classes to guarantee predictable clinical UI behavior.",
+      tech: ["flutter_bloc", "Freezed Models", "Streams / Rx", "Equatable"],
       color: "border-indigo-600 text-indigo-600 bg-indigo-50"
     },
     {
       name: "3. Domain Layer",
       subtitle: "Use Cases & Pure Entities",
-      desc: "Framework-independent business logic containing core rules (e.g. Clinical PIP flexion assessments, HIPAA data rules, Location calculation algorithms). Pure Dart code with zero UI dependencies.",
-      tech: ["UseCases", "Entities", "Failures / Either", "SOLID Principles"],
+      desc: "Framework-independent business logic containing core rules (e.g. DIGIT clinical PIP flexion assessments, HIPAA data rules, Location calculation algorithms). Pure Dart code with zero UI dependencies.",
+      tech: ["Clinical UseCases", "Pure Entities", "HIPAA Validation", "SOLID Principles"],
       color: "border-purple-600 text-purple-600 bg-purple-50"
     },
     {

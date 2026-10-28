@@ -64,74 +64,119 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project: Project) => (
-            <div
-              key={project.id}
-              onClick={() => setActiveProject(project)}
-              className="apple-glass-card rounded-3xl p-7 flex flex-col justify-between cursor-pointer group relative overflow-hidden"
-            >
-              
-              <div>
-                {/* Header badges */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F5F7] border border-black/5 text-xs font-semibold text-[#0071E3]">
-                    {getCategoryIcon(project.category)}
-                    <span>{project.category}</span>
-                  </span>
-                  <span className="text-xs font-mono text-[#86868B] font-semibold">
-                    {project.year}
-                  </span>
-                </div>
+          {filteredProjects.map((project: Project) => {
+            const isFeatured = project.id === 'digit-healthcare' || project.featured;
 
-                {/* Title & Subtitle */}
-                <h3 className="text-xl font-bold text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors mb-1.5 line-clamp-1">
-                  {project.title}
-                </h3>
-                <p className="text-xs font-medium text-[#86868B] mb-3">
-                  {project.subtitle}
-                </p>
+            return (
+              <div
+                key={project.id}
+                onClick={() => setActiveProject(project)}
+                className={`apple-glass-card rounded-3xl p-7 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 ${
+                  isFeatured
+                    ? 'border-rose-400/40 ring-2 ring-rose-500/20 bg-gradient-to-b from-rose-50/50 via-white to-white shadow-xl shadow-rose-500/5 hover:border-rose-500/60'
+                    : 'hover:border-[#0071E3]/40'
+                }`}
+              >
+                <div>
+                  {/* Flagship Healthcare Highlight Ribbon */}
+                  {isFeatured && (
+                    <div className="mb-4 -mt-1 flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-rose-100">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-600 text-xs font-bold tracking-wide">
+                        <Sparkles className="w-3.5 h-3.5 text-rose-500 animate-pulse" />
+                        <span>Flagship Project • Clinical Digital Widgets</span>
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+                        US Healthcare
+                      </span>
+                    </div>
+                  )}
 
-                {/* Summary */}
-                <p className="text-sm text-[#515154] leading-relaxed mb-6 line-clamp-3 font-normal">
-                  {project.summary}
-                </p>
-              </div>
-
-              <div>
-                {/* Client / Role line */}
-                <div className="text-xs font-mono text-[#86868B] mb-4 pb-3 border-b border-black/5 flex items-center justify-between font-semibold">
-                  <span className="truncate max-w-[180px]">{project.clientOrLocation}</span>
-                  <span className="text-[#0071E3]">{project.role}</span>
-                </div>
-
-                {/* Tech Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.techStack.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-0.5 rounded-full bg-[#F5F5F7] border border-black/5 text-[11px] font-mono text-[#1D1D1F] font-semibold"
-                    >
-                      {tech}
+                  {/* Header badges */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                      isFeatured 
+                        ? 'bg-rose-100/70 border border-rose-200 text-rose-700' 
+                        : 'bg-[#F5F5F7] border border-black/5 text-[#0071E3]'
+                    }`}>
+                      {getCategoryIcon(project.category)}
+                      <span>{project.category}</span>
                     </span>
-                  ))}
-                  {project.techStack.length > 4 && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#F5F5F7] border border-black/5 text-[11px] font-mono text-[#86868B]">
-                      +{project.techStack.length - 4} more
+                    <span className="text-xs font-mono text-[#86868B] font-semibold">
+                      {project.year}
                     </span>
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <h3 className={`text-xl font-bold transition-colors mb-1.5 line-clamp-1 ${
+                    isFeatured ? 'text-[#1D1D1F] group-hover:text-rose-600' : 'text-[#1D1D1F] group-hover:text-[#0071E3]'
+                  }`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-xs font-medium text-[#86868B] mb-3">
+                    {project.subtitle}
+                  </p>
+
+                  {/* Summary */}
+                  <p className="text-sm text-[#515154] leading-relaxed mb-4 line-clamp-3 font-normal">
+                    {project.summary}
+                  </p>
+
+                  {/* Custom Digit Widgets Callout Box for DIGIT */}
+                  {isFeatured && (
+                    <div className="mb-5 p-3 rounded-2xl bg-rose-50/80 border border-rose-200/60 text-xs text-rose-950 space-y-1">
+                      <div className="font-bold flex items-center gap-1.5 text-rose-700">
+                        <span className="w-2 h-2 rounded-full bg-rose-500" />
+                        <span>Core Innovation: Modular Digital Widgets</span>
+                      </div>
+                      <p className="text-[11px] text-[#515154] leading-snug">
+                        Custom Flutter widgets for PIP flexion angle tracking, contracture recording, and Freezed immutable models.
+                      </p>
+                    </div>
                   )}
                 </div>
 
-                {/* CTA Link */}
-                <div className="flex items-center justify-between text-xs font-bold text-[#0071E3] group-hover:text-[#0056B3] transition-colors pt-1">
-                  <span className="flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" /> Read Full Case Study
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </div>
+                <div>
+                  {/* Client / Role line */}
+                  <div className="text-xs font-mono text-[#86868B] mb-4 pb-3 border-b border-black/5 flex items-center justify-between font-semibold">
+                    <span className="truncate max-w-[180px]">{project.clientOrLocation}</span>
+                    <span className={isFeatured ? 'text-rose-600' : 'text-[#0071E3]'}>{project.role}</span>
+                  </div>
 
-            </div>
-          ))}
+                  {/* Tech Chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.techStack.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className={`px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-semibold ${
+                          isFeatured && (tech.includes('Widgets') || tech.includes('BLoC') || tech.includes('HIPAA'))
+                            ? 'bg-rose-50 border-rose-200 text-rose-700'
+                            : 'bg-[#F5F5F7] border-black/5 text-[#1D1D1F]'
+                        }`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.techStack.length > 4 && (
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#F5F5F7] border border-black/5 text-[11px] font-mono text-[#86868B]">
+                        +{project.techStack.length - 4} more
+                      </span>
+                    )}
+                  </div>
+
+                  {/* CTA Link */}
+                  <div className={`flex items-center justify-between text-xs font-bold transition-colors pt-1 ${
+                    isFeatured ? 'text-rose-600 group-hover:text-rose-700' : 'text-[#0071E3] group-hover:text-[#0056B3]'
+                  }`}>
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" /> Read Full Case Study
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
 
         {/* Modal display when a project is clicked */}
