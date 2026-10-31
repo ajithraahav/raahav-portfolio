@@ -35,9 +35,9 @@ export const EngineeringShowcase: React.FC = () => {
     },
     {
       name: "5. Data Sources",
-      subtitle: "REST APIs, SQLite & Hive",
-      desc: "Relational bulk SQLite for vessel records & maritime maintenance. Hive key-value storage for transit schedules. RESTful endpoints configured with Exponential Backoff retry policies.",
-      tech: ["SQLite (Bulk Storage)", "Hive Key-Value", "REST APIs", "Exponential Backoff"],
+      subtitle: "REST APIs, Drift, Realm, SQLite & Hive",
+      desc: "Relational bulk SQLite and Drift for vessel records & offline persistence. Hive and Shared Preferences for ultra-fast local key-value storage. RESTful endpoints configured with Exponential Backoff retry policies.",
+      tech: ["Drift", "Realm", "SQLite", "Hive", "Shared Preferences", "REST APIs", "Exponential Backoff"],
       color: "border-blue-600 text-blue-600 bg-blue-50"
     }
   ];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { RESUME_DATA } from '../data/resumeData';
 import type { SkillCategory } from '../data/resumeData';
-import { Cpu, Smartphone, Layers, Server, Cloud, Database, Zap, GitBranch, Bot, Compass } from 'lucide-react';
+import { Cpu, Smartphone, Layers, Server, Cloud, Database, Zap, GitBranch, Bot, Compass, Code2, Sliders, CheckCircle2 } from 'lucide-react';
 
 export const SkillsSection: React.FC = () => {
   const getIcon = (iconName: string) => {
@@ -16,6 +16,9 @@ export const SkillsSection: React.FC = () => {
       case 'Zap': return <Zap className="w-5 h-5 text-rose-600" />;
       case 'GitBranch': return <GitBranch className="w-5 h-5 text-indigo-600" />;
       case 'Bot': return <Bot className="w-5 h-5 text-purple-600" />;
+      case 'Code2': return <Code2 className="w-5 h-5 text-cyan-600" />;
+      case 'Sliders': return <Sliders className="w-5 h-5 text-teal-600" />;
+      case 'CheckCircle2': return <CheckCircle2 className="w-5 h-5 text-emerald-600" />;
       default: return <Cpu className="w-5 h-5 text-[#0071E3]" />;
     }
   };
